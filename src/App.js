@@ -1,25 +1,51 @@
 import logo from './logo.svg';
 import './App.css';
-var res= json => setData(json)
-function getdata(){
-fetch('http://localhost:1000/getdata')
+import React from 'react';
+import { render } from '@testing-library/react';
+class App extends React.Component
+{
+  constructor (props){
+    super(props) 
+    this.state={
+      data:"",
+      prices:""}
+      
+  }
+  
+ info(){
+  fetch('http://localhost:2000/getData')
       .then(response => response.json())
-      .then(json => setData(json))
+      .then(json => this.setState({data:json}))
       .catch(error => console.error(error));}
-function getprise(){
- fetch('http://localhost:1000/getprise')
+ products(){
+ fetch('http://localhost:2000/getPrices')
               .then(response => response.json())
-              .then(json => setData(json))
+              .then(json => this.setState({prices:json}))
               .catch(error => console.error(error));}
+fetchData=()=>{
+  this.info();
+  this.products();
+}
 
-function App() {{getdata()}
-{getprise()}
+
+
+render()
+{ 
   return (
-    <div className="App">
- <div >{res.name.age.gender}</div>
+    <div >
+ <button onClick={this.fetchData()}>fetch</button>
+ <p>{this.state.data.name}</p>
+ <p>{this.state.data.age}</p>
+ <p>{this.state.data.feild}</p>
+ <div>
+ <p>{this.state.prices.price1}</p>
+ <p>{this.state.prices.price2}</p>
+ <p>{this.state.prices.price3}</p>
+ <p>{this.state.prices.price4}</p>
+ </div>
 
     </div>
-  );
-}
+  )
+}}
 
 export default App;
