@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+var res= json => setData(json)
+function getdata(){
+fetch('http://localhost:1000/getdata')
+      .then(response => response.json())
+      .then(json => setData(json))
+      .catch(error => console.error(error));}
+function getprise(){
+ fetch('http://localhost:1000/getprise')
+              .then(response => response.json())
+              .then(json => setData(json))
+              .catch(error => console.error(error));}
 
-function App() {
+function App() {{getdata()}
+{getprise()}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+ <div >{res.name.age.gender}</div>
+
     </div>
   );
 }
