@@ -17,6 +17,13 @@ app.get("/getprices",function(req,res){
     res.json({prices1:"10",prices1:"20",prices3:"40",prices4:"50"})
 
 })
+var server =app.listen(1000,function()
+
+{
+    var host =server.address().address
+    var port =server.address().port
+})
+
 
 
 
