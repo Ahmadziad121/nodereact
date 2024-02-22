@@ -20,23 +20,3 @@ app.get("/getprices",function(req,res){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var server =app.listen(2000,function()
-
-{
-    var host =server.address().address
-    var port =server.address().port
-})
