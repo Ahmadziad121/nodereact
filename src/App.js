@@ -13,12 +13,12 @@ class App extends React.Component
   }
   
  info(){
-  fetch('http://localhost:2000/getData')
+  fetch('http://localhost:3000/getData')
       .then(response => response.json())
       .then(json => this.setState({data:json}))
       .catch(error => console.error(error));}
  products(){
- fetch('http://localhost:2000/getPrices')
+ fetch('http://localhost:3000/getPrices')
               .then(response => response.json())
               .then(json => this.setState({prices:json}))
               .catch(error => console.error(error));}
